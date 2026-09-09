@@ -1,0 +1,23 @@
+{
+  // ---- Line ending: khop voi .gitattributes (eol=lf) ----
+  // Mac dinh VS Code tren Windows tao file moi bang CRLF. Dat "\n" de file moi
+  // dung LF ngay tu dau => khong bi Git chuyen doi qua lai giua 2 may.
+  "files.eol": "\n",
+
+  // ---- Ve sinh file ----
+  // Them dong trong o cuoi file (chuan POSIX; tranh diff rac "\ No newline at end of file")
+  "files.insertFinalNewline": true,
+  // Xoa space thua cuoi dong khi luu
+  "files.trimTrailingWhitespace": true,
+
+  // ---- Convention Java ----
+  // Java dung 4 space (khac 2 space cua JS/TS). Chi ap dung cho file .java.
+  "[java]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+
+  // ---- Encoding ----
+  // UTF-8 khong BOM: javac khong doc duoc file co BOM (xem bai 0.2)
+  "files.encoding": "utf8"
+}

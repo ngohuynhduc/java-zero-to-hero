@@ -1,0 +1,15 @@
+{
+  // Khi clone repo va mo bang VS Code, editor se goi y cai nhung extension nay.
+  // Xem giai thich tung extension o docs/00-moi-truong/03-vscode-cho-java-spring.md
+  "recommendations": [
+    // --- Bat buoc, tu Giai doan 1 ---
+    "vscjava.vscode-java-pack",
+
+    // --- Tu Giai doan 6 (Spring Boot) ---
+    "vmware.vscode-boot-dev-pack",
+    "humao.rest-client",
+
+    // --- Tu Giai doan 7 / 11 (Database, Docker) ---
+    "ms-azuretools.vscode-docker"
+  ]
+}
