@@ -139,4 +139,4 @@ Ghi lại để khi setup máy mới biết cần cài gì.
 ---
 
 ⬅️ **Bài trước:** [0.2 — Cài đặt JDK 21](02-cai-dat-jdk.md)
-➡️ **Bài tiếp:** Giai đoạn 1 — Chương trình Java đầu tiên
+➡️ **Bài tiếp:** [0.4 — Git cho Java project: line ending & `.gitattributes`](04-git-line-ending.md)

@@ -35,6 +35,7 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [0.1](docs/00-moi-truong/01-java-hoat-dong-nhu-the-nao.md) | Java hoạt động như thế nào? JDK vs JRE vs JVM |
 | [0.2](docs/00-moi-truong/02-cai-dat-jdk.md) | Cài đặt JDK 21 trên Windows |
 | [0.3](docs/00-moi-truong/03-vscode-cho-java-spring.md) | Cấu hình VS Code cho Java & Spring |
+| [0.4](docs/00-moi-truong/04-git-line-ending.md) | Git cho Java project: line ending & `.gitattributes` |
 
 ---
 

@@ -1,0 +1,70 @@
+# ==========================================================================
+# .gitattributes — Chuẩn hóa line ending cho toàn repo
+#
+# Vì sao cần: Windows dùng CRLF, Linux/macOS dùng LF. Không chuẩn hóa thì
+# git diff / git blame sẽ hiện "cả file thay đổi" chỉ vì ký tự xuống dòng.
+#
+# File này nằm TRONG repo nên đi theo mọi lần clone, và có độ ưu tiên CAO HƠN
+# cấu hình core.autocrlf của từng máy => không ai phải cấu hình gì thêm.
+#
+# Nguyên tắc: repo LUÔN lưu LF. Working directory thì theo khai báo eol= dưới.
+# ==========================================================================
+
+# --- Mặc định cho mọi file ---
+# text=auto: Git tự nhận diện text/binary, text thì chuẩn hóa về LF khi commit
+* text=auto eol=lf
+
+# --- Java source & cấu hình (GĐ 1-10) ---
+*.java          text eol=lf
+*.properties    text eol=lf
+*.xml           text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.json          text eol=lf
+*.sql           text eol=lf
+*.md            text eol=lf
+*.txt           text eol=lf
+*.http          text eol=lf
+
+# --- Build tool wrapper (GĐ 4) ---
+# mvnw / gradlew là shell script chạy trên Linux/macOS => BẮT BUỘC LF.
+# Nếu bị đổi thành CRLF, Linux báo lỗi: "bad interpreter: No such file or directory"
+mvnw            text eol=lf
+gradlew         text eol=lf
+*.sh            text eol=lf
+
+# --- Script Windows: BẮT BUỘC CRLF ---
+# cmd.exe không chạy được file .bat dùng LF
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+
+# --- Docker & CI (GĐ 11) ---
+Dockerfile      text eol=lf
+*.dockerfile    text eol=lf
+.dockerignore   text eol=lf
+.editorconfig   text eol=lf
+.gitattributes  text eol=lf
+.gitignore      text eol=lf
+
+# --- Binary: KHÔNG được chuyển đổi ---
+# File nén/ảnh chứa byte 13 và 10 trong dữ liệu. Nếu Git "chuẩn hóa" => file HỎNG.
+*.jar           binary
+*.war           binary
+*.ear           binary
+*.class         binary
+*.zip           binary
+*.gz            binary
+*.tar           binary
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.ico           binary
+*.pdf           binary
+*.keystore      binary
+*.jks           binary
+*.p12           binary
+
+# --- Hiển thị diff dễ đọc hơn trên GitHub ---
+# Giúp GitHub hiểu ngữ cảnh Java khi hiện diff (đoán tên method trong header @@)
+*.java          diff=java
