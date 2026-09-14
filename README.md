@@ -42,14 +42,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | Bài | Nội dung | Code |
 |---|---|---|
 | [1.1](docs/01-java-core/01-chuong-trinh-dau-tien.md) | Chương trình đầu tiên. Mổ xẻ `public static void main(String[] args)` từng từ | [`Hello.java`](bai-tap/01-java-core/Hello.java) |
+| [1.2](docs/01-java-core/02-compile-time-vs-runtime.md) | Compile-time vs Runtime: hai cửa kiểm soát. 6 thí nghiệm phá vỡ chương trình | — |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 1.1 — viết, compile và chạy `Hello.java` thành công.
+**Vừa xong:** Bài 1.2 — 6 thí nghiệm phá vỡ `Hello.java`, phân biệt lỗi compile-time (`javac` chặn) với lỗi runtime (JVM chặn).
 
-**Việc tiếp theo:** mục 9 của [bài 1.1](docs/01-java-core/01-chuong-trinh-dau-tien.md#9-️-bước-tiếp-theo-chưa-làm) — thí nghiệm **cố tình phá vỡ** chương trình theo 6 cách, đoán lỗi trước khi chạy, để phân biệt **lỗi compile-time** với **lỗi runtime**.
+**Việc tiếp theo:** Bài 1.3 — biến và 8 kiểu dữ liệu nguyên thủy. Khác biệt lớn nhất giữa Java và JavaScript: **static typing**.
 
 ---
 
