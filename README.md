@@ -43,14 +43,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 |---|---|---|
 | [1.1](docs/01-java-core/01-chuong-trinh-dau-tien.md) | Chương trình đầu tiên. Mổ xẻ `public static void main(String[] args)` từng từ | [`Hello.java`](bai-tap/01-java-core/Hello.java) |
 | [1.2](docs/01-java-core/02-compile-time-vs-runtime.md) | Compile-time vs Runtime: hai cửa kiểm soát. 6 thí nghiệm phá vỡ chương trình | — |
+| [1.3](docs/01-java-core/03-bien-va-kieu-du-lieu.md) | Static typing, 8 kiểu nguyên thủy, integer overflow, `char` là số, IEEE 754 | [`KieuDuLieu.java`](bai-tap/01-java-core/KieuDuLieu.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 1.2 — 6 thí nghiệm phá vỡ `Hello.java`, phân biệt lỗi compile-time (`javac` chặn) với lỗi runtime (JVM chặn).
+**Vừa xong:** Bài 1.3 — static typing vs dynamic typing, 8 kiểu nguyên thủy, và ba cái bẫy: integer overflow, numeric promotion, số thực IEEE 754.
 
-**Việc tiếp theo:** Bài 1.3 — biến và 8 kiểu dữ liệu nguyên thủy. Khác biệt lớn nhất giữa Java và JavaScript: **static typing**.
+**Việc tiếp theo:** Bài 1.4 — `String`, wrapper class (`int` vs `Integer`) và ép kiểu.
 
 ---
 
