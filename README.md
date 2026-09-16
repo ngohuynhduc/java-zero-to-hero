@@ -44,14 +44,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [1.1](docs/01-java-core/01-chuong-trinh-dau-tien.md) | Chương trình đầu tiên. Mổ xẻ `public static void main(String[] args)` từng từ | [`Hello.java`](bai-tap/01-java-core/Hello.java) |
 | [1.2](docs/01-java-core/02-compile-time-vs-runtime.md) | Compile-time vs Runtime: hai cửa kiểm soát. 6 thí nghiệm phá vỡ chương trình | — |
 | [1.3](docs/01-java-core/03-bien-va-kieu-du-lieu.md) | Static typing, 8 kiểu nguyên thủy, integer overflow, `char` là số, IEEE 754 | [`KieuDuLieu.java`](bai-tap/01-java-core/KieuDuLieu.java) |
+| [1.4](docs/01-java-core/04-string-va-kieu-tham-chieu.md) | `String` và kiểu tham chiếu: Stack/Heap, bất biến, `==` vs `equals()`, String pool | [`ChuoiVaThamChieu.java`](bai-tap/01-java-core/ChuoiVaThamChieu.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 1.3 — static typing vs dynamic typing, 8 kiểu nguyên thủy, và ba cái bẫy: integer overflow, numeric promotion, số thực IEEE 754.
+**Vừa xong:** Bài 1.4 — Stack/Heap, vì sao `==` không dùng được cho `String`, String pool và constant folding.
 
-**Việc tiếp theo:** Bài 1.4 — `String`, wrapper class (`int` vs `Integer`) và ép kiểu.
+**Việc tiếp theo:** Bài 1.5 — Wrapper class (`int` vs `Integer`), autoboxing và ép kiểu.
 
 ---
 
