@@ -45,14 +45,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [1.2](docs/01-java-core/02-compile-time-vs-runtime.md) | Compile-time vs Runtime: hai cửa kiểm soát. 6 thí nghiệm phá vỡ chương trình | — |
 | [1.3](docs/01-java-core/03-bien-va-kieu-du-lieu.md) | Static typing, 8 kiểu nguyên thủy, integer overflow, `char` là số, IEEE 754 | [`KieuDuLieu.java`](bai-tap/01-java-core/KieuDuLieu.java) |
 | [1.4](docs/01-java-core/04-string-va-kieu-tham-chieu.md) | `String` và kiểu tham chiếu: Stack/Heap, bất biến, `==` vs `equals()`, String pool | [`ChuoiVaThamChieu.java`](bai-tap/01-java-core/ChuoiVaThamChieu.java) |
+| [1.5](docs/01-java-core/05-wrapper-autoboxing-ep-kieu.md) | Wrapper class, autoboxing, NPE vô hình, Integer cache, ép kiểu | [`WrapperVaEpKieu.java`](bai-tap/01-java-core/WrapperVaEpKieu.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 1.4 — Stack/Heap, vì sao `==` không dùng được cho `String`, String pool và constant folding.
+**Vừa xong:** Bài 1.5 — `int` vs `Integer`, autoboxing và lời gọi `.intValue()` vô hình gây NPE, Integer cache, quy luật cắt bit của narrowing.
 
-**Việc tiếp theo:** Bài 1.5 — Wrapper class (`int` vs `Integer`), autoboxing và ép kiểu.
+**Việc tiếp theo:** Bài 1.6 — Toán tử và luồng điều khiển (`if`, `switch`, vòng lặp).
 
 ---
 
