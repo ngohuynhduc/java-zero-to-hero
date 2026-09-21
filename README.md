@@ -46,14 +46,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [1.3](docs/01-java-core/03-bien-va-kieu-du-lieu.md) | Static typing, 8 kiểu nguyên thủy, integer overflow, `char` là số, IEEE 754 | [`KieuDuLieu.java`](bai-tap/01-java-core/KieuDuLieu.java) |
 | [1.4](docs/01-java-core/04-string-va-kieu-tham-chieu.md) | `String` và kiểu tham chiếu: Stack/Heap, bất biến, `==` vs `equals()`, String pool | [`ChuoiVaThamChieu.java`](bai-tap/01-java-core/ChuoiVaThamChieu.java) |
 | [1.5](docs/01-java-core/05-wrapper-autoboxing-ep-kieu.md) | Wrapper class, autoboxing, NPE vô hình, Integer cache, ép kiểu | [`WrapperVaEpKieu.java`](bai-tap/01-java-core/WrapperVaEpKieu.java) |
+| [1.6](docs/01-java-core/06-toan-tu-va-luong-dieu-khien.md) | Không có truthy/falsy, chia số nguyên, `NaN`, `switch` fallthrough, vòng lặp | [`ToanTuVaDieuKhien.java`](bai-tap/01-java-core/ToanTuVaDieuKhien.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 1.5 — `int` vs `Integer`, autoboxing và lời gọi `.intValue()` vô hình gây NPE, Integer cache, quy luật cắt bit của narrowing.
+**Vừa xong:** Bài 1.6 — điều kiện bắt buộc là `boolean`, bẫy chia số nguyên, `NaN` lọt qua mọi nhánh kiểm tra, `switch` chảy tràn và `switch` biểu thức.
 
-**Việc tiếp theo:** Bài 1.6 — Toán tử và luồng điều khiển (`if`, `switch`, vòng lặp).
+**Việc tiếp theo:** Bài 1.7 — Mảng và method, truyền tham số theo giá trị. Bài cuối của Giai đoạn 1.
 
 ---
 
