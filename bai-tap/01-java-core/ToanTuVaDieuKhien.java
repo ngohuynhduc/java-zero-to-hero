@@ -29,7 +29,7 @@ public class ToanTuVaDieuKhien {
             case 1: System.out.println("Thu hai");
             case 2: System.out.println("Thu ba");
             case 3: System.out.println("Thu tu");
-            default: System.out.println("Khong xac dinh");
+            default: System.out.println("Khong hop le");
         }
 
         System.out.println();
@@ -37,7 +37,7 @@ public class ToanTuVaDieuKhien {
         String loaiNgay = switch (ngay) {
             case 1,7 -> "Cuoi tuan";
             case 2,3,4,5,6 -> "Trong tuan";
-            default -> "Khong xac dinh";
+            default -> "Khong hop le";
         };
         System.out.println("ngay " + ngay + " -> " + loaiNgay);
     }

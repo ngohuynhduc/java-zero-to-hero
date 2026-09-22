@@ -11,8 +11,8 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | GĐ | Nội dung | Mục tiêu | Trạng thái |
 |---|---|---|---|
 | **0** | Môi trường: JDK, VS Code, Git | Chạy được dòng Java đầu tiên | ✅ Xong |
-| **1** | Java core: biến, kiểu dữ liệu, điều kiện, vòng lặp, method | Viết logic cơ bản | 🔄 Đang làm |
-| **2** | OOP: class, object, kế thừa, interface, đa hình | Tư duy hướng đối tượng — nền tảng bắt buộc để hiểu Spring | ⬜ |
+| **1** | Java core: biến, kiểu dữ liệu, điều kiện, vòng lặp, method | Viết logic cơ bản | ✅ Xong |
+| **2** | OOP: class, object, kế thừa, interface, đa hình | Tư duy hướng đối tượng — nền tảng bắt buộc để hiểu Spring | 🔄 Đang làm |
 | **3** | Collections, Exception, Generics, Stream API | Xử lý dữ liệu thực tế | ⬜ |
 | **4** | Maven, annotation, reflection cơ bản | Hiểu *tại sao* Spring "tự động" làm được nhiều thứ | ⬜ |
 | **5** | Spring Core: IoC / DI / Bean | Trái tim của Spring | ⬜ |
@@ -47,14 +47,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [1.4](docs/01-java-core/04-string-va-kieu-tham-chieu.md) | `String` và kiểu tham chiếu: Stack/Heap, bất biến, `==` vs `equals()`, String pool | [`ChuoiVaThamChieu.java`](bai-tap/01-java-core/ChuoiVaThamChieu.java) |
 | [1.5](docs/01-java-core/05-wrapper-autoboxing-ep-kieu.md) | Wrapper class, autoboxing, NPE vô hình, Integer cache, ép kiểu | [`WrapperVaEpKieu.java`](bai-tap/01-java-core/WrapperVaEpKieu.java) |
 | [1.6](docs/01-java-core/06-toan-tu-va-luong-dieu-khien.md) | Không có truthy/falsy, chia số nguyên, `NaN`, `switch` fallthrough, vòng lặp | [`ToanTuVaDieuKhien.java`](bai-tap/01-java-core/ToanTuVaDieuKhien.java) |
+| [1.7](docs/01-java-core/07-mang-va-method.md) | Mảng cố định kích thước, `args`, overloading ba pha, **pass-by-value** | [`MangVaMethod.java`](bai-tap/01-java-core/MangVaMethod.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 1.6 — điều kiện bắt buộc là `boolean`, bẫy chia số nguyên, `NaN` lọt qua mọi nhánh kiểm tra, `switch` chảy tràn và `switch` biểu thức.
+**Vừa xong:** Bài 1.7 — **hoàn thành Giai đoạn 1**. Mảng là khối bộ nhớ liền nhau nên không co giãn, Java chọn overload theo ba pha để giữ tương thích ngược, và Java luôn truyền tham số **theo giá trị** (bản sao của địa chỉ, không phải bản thân biến).
 
-**Việc tiếp theo:** Bài 1.7 — Mảng và method, truyền tham số theo giá trị. Bài cuối của Giai đoạn 1.
+**Việc tiếp theo:** Giai đoạn 2 — OOP: class, object, `this`, constructor, đóng gói, kế thừa, interface, đa hình.
 
 ---
 
