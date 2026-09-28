@@ -312,11 +312,157 @@ public String toString() {
 }
 ```
 
-### `@Override` — annotation đầu tiên
+---
 
-**Không bắt buộc**, nhưng luôn nên viết. Nếu gõ nhầm thành `toStrring()`, không có `@Override` thì Java lặng lẽ coi đó là **method mới toanh** — bạn tưởng đã override mà thực ra chưa, và `println` vẫn in `@hashcode`. Có `@Override`, compiler báo lỗi ngay.
+## 8b. `@Override` và annotation — nền móng của Spring
 
-> Đây là lần đầu thấy cú pháp `@` — **annotation**, "nhãn dán" gắn vào code để compiler hoặc thư viện đọc. Giai đoạn 4 học kỹ, và từ Giai đoạn 5 Spring dùng annotation ở **khắp nơi** (`@Service`, `@Autowired`, `@RestController`). Bạn vừa chạm vào nền móng của Spring.
+### Annotation là **nhãn dán**, không phải code chạy
+
+`@Override` là một **annotation** — dạng **metadata**: thông tin *về* code, gắn vào code, nhưng bản thân nó **không phải code thực thi**.
+
+```
+   ┌─────────────────┐
+   │   ⚠ DỄ VỠ      │  ← nhãn dán (annotation)
+   ├─────────────────┤
+   │                 │
+   │   hàng hóa      │  ← code thật
+   │                 │
+   └─────────────────┘
+```
+
+Nhãn "DỄ VỠ" **không làm thùng cứng hơn**. Nó là **chỉ dẫn cho người khác đọc rồi hành động**.
+
+Câu hỏi quan trọng với mọi annotation luôn là: **ai đọc nó, và đọc lúc nào?**
+
+### `@Override` nói gì với compiler
+
+> *"Tôi **tin rằng** method này đang viết đè một method của lớp cha. Kiểm tra giúp tôi."*
+
+- Đúng → **không có gì xảy ra**, chương trình chạy y hệt như khi không viết nó.
+- Sai → lỗi compile.
+
+Vậy `@Override` **không thay đổi hành vi chương trình**. Nó chỉ là một lời nhờ kiểm tra.
+
+### Vì sao cần nhờ? Vì `javac` không đọc được ý định
+
+Thí nghiệm: gõ nhầm `toString` thành `toStrring`, **không** có `@Override`:
+
+```
+javac: KHÔNG báo lỗi gì
+Kết quả in ra: SanPham@4517d9a3
+```
+
+Compiler im lặng hoàn toàn, và `toString()` thật vẫn là bản mặc định của `Object`.
+
+**Vì sao không kêu?** Vì `toStrring()` là một **method hoàn toàn hợp lệ** — chỉ là method mới với cái tên lạ. Không vi phạm luật ngôn ngữ nào. Nhớ [bài 1.2](../01-java-core/02-compile-time-vs-runtime.md): `javac` chỉ trả lời *"code này có hợp pháp không?"* — nó không biết bạn **định** làm gì.
+
+Thêm `@Override`:
+
+```
+error: method does not override or implement a method from a supertype
+    @Override
+    ^
+```
+
+> 📌 Đây chính là lý do annotation tồn tại: **viết ý định của bạn ra thành thứ máy đọc được, để máy kiểm tra hộ.**
+
+### 🔬 Ba mức "sống lâu" (retention)
+
+Annotation khác nhau ở chỗ **nó sống tới giai đoạn nào**:
+
+```
+   Mã nguồn .java  ──javac──►  Bytecode .class  ──JVM──►  Chương trình đang chạy
+         │                           │                            │
+   ┌─────┴─────┐              ┌──────┴──────┐              ┌──────┴──────┐
+   │  SOURCE   │              │    CLASS    │              │   RUNTIME   │
+   │ ✂ bị xóa  │              │ có, nhưng   │              │ ✅ đọc được │
+   │ ở đây     │              │ JVM bỏ qua  │              │  lúc chạy   │
+   └───────────┘              └─────────────┘              └─────────────┘
+```
+
+| Retention | Sống tới đâu | Ví dụ | Ai đọc nó |
+|---|---|---|---|
+| **SOURCE** | Chỉ lúc compile, rồi **bị xóa sạch** | `@Override`, `@SuppressWarnings` | compiler |
+| **CLASS** | Nằm trong `.class` nhưng JVM không nạp | (ít gặp) | công cụ phân tích bytecode |
+| **RUNTIME** | **Đọc được khi chương trình đang chạy** | `@Deprecated`, **mọi annotation của Spring** | thư viện, framework |
+
+### Bằng chứng: soi file `.class` bằng `javap -v`
+
+```
+--- Dấu vết annotation tìm thấy trong file .class ---
+  #15 = Utf8               Deprecated
+  #16 = Utf8               RuntimeVisibleAnnotations
+  #17 = Utf8               Ljava/lang/Deprecated;
+  Deprecated: true
+  RuntimeVisibleAnnotations:
+  java.lang.Deprecated
+```
+
+| Annotation trong mã nguồn | Có trong `.class`? |
+|---|---|
+| `@Deprecated` | ✅ Có — `RuntimeVisibleAnnotations` |
+| `@Override` | ❌ **Không một dấu vết nào** |
+| `@SuppressWarnings` | ❌ **Không một dấu vết nào** |
+
+`@Override` **bị xóa sạch** sau khi biên dịch — bằng chứng dứt khoát cho câu *"nó không thay đổi hành vi chương trình"*. Còn `@Deprecated` **còn nguyên**, vì nó cần được đọc lúc chạy.
+
+### 🔑 Mảnh ghép đầu tiên của Spring
+
+Từ Giai đoạn 5 bạn sẽ viết những dòng trông như phép thuật:
+
+```java
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository repo;     // không hề new, nhưng nó vẫn có giá trị
+}
+```
+
+Nửa lời giải nằm ở đây: những annotation đó thuộc loại **RUNTIME**, nên chúng **còn nguyên trong file `.class`**.
+
+Lúc khởi động, Spring quét toàn bộ class trong project, **đọc các nhãn dán đó** (bằng cơ chế **reflection** — Giai đoạn 4), rồi hành động:
+
+```
+   Spring khởi động
+        │
+        ├─ đọc thấy @Service     → "class này cần một object, để tôi new cho"
+        ├─ đọc thấy @Autowired   → "field này cần được điền, để tôi tìm object phù hợp"
+        └─ đọc thấy @GetMapping  → "gọi method này khi có request GET tới đường dẫn đó"
+```
+
+> 📌 **Spring không phải phép thuật.** Nó là một chương trình Java bình thường, đọc nhãn dán trên code của bạn rồi làm việc tương ứng.
+
+### So với JavaScript
+
+Nếu từng dùng **NestJS** hay **Angular** thì đã gặp ý tưởng này — chúng gọi là **decorator**:
+
+```typescript
+@Injectable()
+export class UserService { }
+```
+
+| | Decorator (JS/TS) | Annotation (Java) |
+|---|---|---|
+| Bản chất | Là **một hàm thật sự chạy** | **Thuần túy dữ liệu** |
+| Tự thay đổi thứ nó gắn vào? | ✅ Có — thay thế class/method luôn | ❌ Không — nó chỉ nằm đó |
+| Muốn có tác dụng thì | Tự nó chạy là xong | **Phải có ai đó đọc nó** |
+
+Annotation Java thụ động hơn. Không có framework đọc thì `@Service` cũng chỉ là mấy ký tự vô nghĩa.
+
+### Các annotation sẽ gặp trong lộ trình
+
+| Annotation | Ý nghĩa | Gặp ở |
+|---|---|---|
+| `@Override` | "Tôi đang override, kiểm tra hộ" | Bài này |
+| `@Deprecated` | "Đừng dùng nữa, sẽ bị xóa" | GĐ 3 |
+| `@SuppressWarnings` | "Tôi biết có cảnh báo, bỏ qua đi" | GĐ 3 |
+| `@FunctionalInterface` | "Interface này chỉ có đúng 1 method" | GĐ 3 |
+| `@Service`, `@Autowired` | Spring: tạo và ghép nối object | GĐ 5 |
+| `@RestController`, `@GetMapping` | Spring: định tuyến HTTP | GĐ 6 |
+| `@Entity`, `@Column` | JPA: ánh xạ class sang bảng DB | GĐ 7 |
+
+> 🛡️ **Quy tắc: luôn viết `@Override` mỗi khi định override.** Miễn phí, không ảnh hưởng hiệu năng, và bắt được loại bug mà code vẫn chạy ngon — chỉ là method của bạn không bao giờ được gọi.
 
 ---
 
