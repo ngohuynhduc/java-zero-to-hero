@@ -49,13 +49,19 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [1.6](docs/01-java-core/06-toan-tu-va-luong-dieu-khien.md) | Không có truthy/falsy, chia số nguyên, `NaN`, `switch` fallthrough, vòng lặp | [`ToanTuVaDieuKhien.java`](bai-tap/01-java-core/ToanTuVaDieuKhien.java) |
 | [1.7](docs/01-java-core/07-mang-va-method.md) | Mảng cố định kích thước, `args`, overloading ba pha, **pass-by-value** | [`MangVaMethod.java`](bai-tap/01-java-core/MangVaMethod.java) |
 
+### Giai đoạn 2 — OOP
+
+| Bài | Nội dung | Code |
+|---|---|---|
+| [2.1](docs/02-oop/01-class-va-object.md) | Vì sao OOP tồn tại, class vs object, `new`, constructor, `this`, `static`, đóng gói, `toString()` | [`ThuNghiemOOP.java`](bai-tap/02-oop/ThuNghiemOOP.java) |
+
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 1.7 — **hoàn thành Giai đoạn 1**. Mảng là khối bộ nhớ liền nhau nên không co giãn, Java chọn overload theo ba pha để giữ tương thích ngược, và Java luôn truyền tham số **theo giá trị** (bản sao của địa chỉ, không phải bản thân biến).
+**Vừa xong:** Bài 2.1 — class là bản thiết kế còn object là thực thể, field có giá trị mặc định (khác biến cục bộ) vì `new` xóa sạch vùng nhớ Heap, `private` đảm bảo không có lối đi nào ngoài cửa chính.
 
-**Việc tiếp theo:** Giai đoạn 2 — OOP: class, object, `this`, constructor, đóng gói, kế thừa, interface, đa hình.
+**Việc tiếp theo:** Bài 2.2 — Kế thừa (`extends`), `super` và `@Override`.
 
 ---
 
