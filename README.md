@@ -54,14 +54,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | Bài | Nội dung | Code |
 |---|---|---|
 | [2.1](docs/02-oop/01-class-va-object.md) | Vì sao OOP tồn tại, class vs object, `new`, constructor, `this`, `static`, đóng gói, `toString()` | [`ThuNghiemOOP.java`](bai-tap/02-oop/ThuNghiemOOP.java) |
+| [2.2](docs/02-oop/02-ke-thua-super-override.md) | Kế thừa, object nhiều tầng, `super(...)` ngầm định, thứ tự khởi tạo, override, `final`, bẫy gọi method override trong constructor | [`KeThua.java`](bai-tap/02-oop/KeThua.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 2.1 — class là bản thiết kế còn object là thực thể, field có giá trị mặc định (khác biến cục bộ) vì `new` xóa sạch vùng nhớ Heap, `private` đảm bảo không có lối đi nào ngoài cửa chính.
+**Vừa xong:** Bài 2.2 — `new QuanLy` tạo **một** object nhiều tầng; constructor cha chạy trước; compiler tự chèn `super()` và dời dòng khởi tạo field vào **sau** `super(...)` (soi `javap -c`), nên method override gọi từ constructor cha thấy field của con là `null`.
 
-**Việc tiếp theo:** Bài 2.2 — Kế thừa (`extends`), `super` và `@Override`.
+**Việc tiếp theo:** Bài 2.3 — Abstract class và Interface (lời giải cho giới hạn "chỉ được `extends` một class").
 
 ---
 

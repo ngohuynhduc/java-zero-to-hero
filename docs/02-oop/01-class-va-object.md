@@ -531,4 +531,4 @@ ThuNghiemOOP.java:59: error: soLuong has private access in SanPham
 ---
 
 ⬅️ **Bài trước:** [1.7 — Mảng và method](../01-java-core/07-mang-va-method.md)
-➡️ **Bài tiếp:** 2.2 — Kế thừa (`extends`), `super` và `@Override`
+➡️ **Bài tiếp:** [2.2 — Kế thừa (`extends`), `super` và `@Override`](02-ke-thua-super-override.md)
