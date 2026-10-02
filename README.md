@@ -55,14 +55,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 |---|---|---|
 | [2.1](docs/02-oop/01-class-va-object.md) | Vì sao OOP tồn tại, class vs object, `new`, constructor, `this`, `static`, đóng gói, `toString()` | [`ThuNghiemOOP.java`](bai-tap/02-oop/ThuNghiemOOP.java) |
 | [2.2](docs/02-oop/02-ke-thua-super-override.md) | Kế thừa, object nhiều tầng, `super(...)` ngầm định, thứ tự khởi tạo, override, `final`, bẫy gọi method override trong constructor | [`KeThua.java`](bai-tap/02-oop/KeThua.java) |
+| [2.3](docs/02-oop/03-interface-va-abstract-class.md) | Diamond problem, `abstract class` vs `interface`, `implements` nhiều, `default` method, compile-time type vs runtime type, vì sao interface là trái tim của Spring | [`InterfaceVaAbstract.java`](bai-tap/02-oop/InterfaceVaAbstract.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 2.2 — `new QuanLy` tạo **một** object nhiều tầng; constructor cha chạy trước; compiler tự chèn `super()` và dời dòng khởi tạo field vào **sau** `super(...)` (soi `javap -c`), nên method override gọi từ constructor cha thấy field của con là `null`.
+**Vừa xong:** Bài 2.3 — Java cấm đa kế thừa class vì diamond problem (dữ liệu của cha bị nhân đôi), nhưng cho `implements` nhiều interface vì interface **không mang dữ liệu**. Phân biệt **compile-time type** (biến — quyết định gọi được method nào) với **runtime type** (object thật — quyết định chạy bản nào).
 
-**Việc tiếp theo:** Bài 2.3 — Abstract class và Interface (lời giải cho giới hạn "chỉ được `extends` một class").
+**Việc tiếp theo:** Bài 2.4 — Đa hình (polymorphism), chốt lại Giai đoạn 2.
 
 ---
 
