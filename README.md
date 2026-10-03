@@ -56,14 +56,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [2.1](docs/02-oop/01-class-va-object.md) | Vì sao OOP tồn tại, class vs object, `new`, constructor, `this`, `static`, đóng gói, `toString()` | [`ThuNghiemOOP.java`](bai-tap/02-oop/ThuNghiemOOP.java) |
 | [2.2](docs/02-oop/02-ke-thua-super-override.md) | Kế thừa, object nhiều tầng, `super(...)` ngầm định, thứ tự khởi tạo, override, `final`, bẫy gọi method override trong constructor | [`KeThua.java`](bai-tap/02-oop/KeThua.java) |
 | [2.3](docs/02-oop/03-interface-va-abstract-class.md) | Diamond problem, `abstract class` vs `interface`, `implements` nhiều, `default` method, compile-time type vs runtime type, vì sao interface là trái tim của Spring | [`InterfaceVaAbstract.java`](bai-tap/02-oop/InterfaceVaAbstract.java) |
+| [2.4](docs/02-oop/04-da-hinh.md) | Late binding qua `invokevirtual`, chỉ instance method mới đa hình, up/downcasting, `ClassCastException`, pattern matching | [`DaHinh.java`](bai-tap/02-oop/DaHinh.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 2.3 — Java cấm đa kế thừa class vì diamond problem (dữ liệu của cha bị nhân đôi), nhưng cho `implements` nhiều interface vì interface **không mang dữ liệu**. Phân biệt **compile-time type** (biến — quyết định gọi được method nào) với **runtime type** (object thật — quyết định chạy bản nào).
+**Vừa xong:** Bài 2.4 — `invokevirtual` khiến JVM tra vtable lúc chạy (late binding), nên **chỉ instance method mới đa hình**; field và `static` method dùng `getfield`/`invokestatic` nên chốt theo kiểu biến ngay lúc compile. Ranh giới hai cửa kiểm soát: `javac` chỉ chặn thứ nó **chứng minh được là sai**.
 
-**Việc tiếp theo:** Bài 2.4 — Đa hình (polymorphism), chốt lại Giai đoạn 2.
+**Việc tiếp theo:** Bài 2.5 — `equals()`, `hashCode()` và `record`. Bài cuối của Giai đoạn 2.
 
 ---
 
