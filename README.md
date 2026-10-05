@@ -12,8 +12,8 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 |---|---|---|---|
 | **0** | Môi trường: JDK, VS Code, Git | Chạy được dòng Java đầu tiên | ✅ Xong |
 | **1** | Java core: biến, kiểu dữ liệu, điều kiện, vòng lặp, method | Viết logic cơ bản | ✅ Xong |
-| **2** | OOP: class, object, kế thừa, interface, đa hình | Tư duy hướng đối tượng — nền tảng bắt buộc để hiểu Spring | 🔄 Đang làm |
-| **3** | Collections, Exception, Generics, Stream API | Xử lý dữ liệu thực tế | ⬜ |
+| **2** | OOP: class, object, kế thừa, interface, đa hình | Tư duy hướng đối tượng — nền tảng bắt buộc để hiểu Spring | ✅ Xong |
+| **3** | Collections, Exception, Generics, Stream API | Xử lý dữ liệu thực tế | 🔄 Đang làm |
 | **4** | Maven, annotation, reflection cơ bản | Hiểu *tại sao* Spring "tự động" làm được nhiều thứ | ⬜ |
 | **5** | Spring Core: IoC / DI / Bean | Trái tim của Spring | ⬜ |
 | **6** | Spring Boot + REST API | Viết được API đầu tiên | ⬜ |
@@ -57,14 +57,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [2.2](docs/02-oop/02-ke-thua-super-override.md) | Kế thừa, object nhiều tầng, `super(...)` ngầm định, thứ tự khởi tạo, override, `final`, bẫy gọi method override trong constructor | [`KeThua.java`](bai-tap/02-oop/KeThua.java) |
 | [2.3](docs/02-oop/03-interface-va-abstract-class.md) | Diamond problem, `abstract class` vs `interface`, `implements` nhiều, `default` method, compile-time type vs runtime type, vì sao interface là trái tim của Spring | [`InterfaceVaAbstract.java`](bai-tap/02-oop/InterfaceVaAbstract.java) |
 | [2.4](docs/02-oop/04-da-hinh.md) | Late binding qua `invokevirtual`, chỉ instance method mới đa hình, up/downcasting, `ClassCastException`, pattern matching | [`DaHinh.java`](bai-tap/02-oop/DaHinh.java) |
+| [2.5](docs/02-oop/05-equals-hashcode-record.md) | Tự viết `equals()`, cơ chế ngăn của `HashSet`/`HashMap`, bug quên `hashCode()`, object mất tích khi sửa field, `record` | [`EqualsHashCode.java`](bai-tap/02-oop/EqualsHashCode.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 2.4 — `invokevirtual` khiến JVM tra vtable lúc chạy (late binding), nên **chỉ instance method mới đa hình**; field và `static` method dùng `getfield`/`invokestatic` nên chốt theo kiểu biến ngay lúc compile. Ranh giới hai cửa kiểm soát: `javac` chỉ chặn thứ nó **chứng minh được là sai**.
+**Vừa xong:** Bài 2.5 — **hoàn thành Giai đoạn 2**. `HashSet`/`HashMap` hỏi `hashCode()` để chọn ngăn **trước**, chỉ hỏi `equals()` bên trong ngăn đó — nên quên `hashCode()` khiến `Set` chứa phần tử trùng, và sửa field sau khi bỏ vào `Set` khiến object mất tích không xóa được. `record` giải quyết cả hai.
 
-**Việc tiếp theo:** Bài 2.5 — `equals()`, `hashCode()` và `record`. Bài cuối của Giai đoạn 2.
+**Việc tiếp theo:** Giai đoạn 3 — Collections (`List`, `Set`, `Map` và khi nào dùng cái nào), Generics, Exception, Stream API.
 
 ---
 
