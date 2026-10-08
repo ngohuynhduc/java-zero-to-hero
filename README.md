@@ -59,13 +59,19 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [2.4](docs/02-oop/04-da-hinh.md) | Late binding qua `invokevirtual`, chỉ instance method mới đa hình, up/downcasting, `ClassCastException`, pattern matching | [`DaHinh.java`](bai-tap/02-oop/DaHinh.java) |
 | [2.5](docs/02-oop/05-equals-hashcode-record.md) | Tự viết `equals()`, cơ chế ngăn của `HashSet`/`HashMap`, bug quên `hashCode()`, object mất tích khi sửa field, `record` | [`EqualsHashCode.java`](bai-tap/02-oop/EqualsHashCode.java) |
 
+### Giai đoạn 3 — Collections, Generics, Exception, Stream
+
+| Bài | Nội dung | Code |
+|---|---|---|
+| [3.1](docs/03-collections/01-chon-collection.md) | Cấu trúc bên trong `ArrayList`/`LinkedList`/`HashSet`/`HashMap`/`TreeMap`, Big-O, đo thời gian thật, `List.of` bất biến, lỗ thủng của `ConcurrentModificationException` | [`ChonCollection.java`](bai-tap/03-collections/ChonCollection.java) |
+
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 2.5 — **hoàn thành Giai đoạn 2**. `HashSet`/`HashMap` hỏi `hashCode()` để chọn ngăn **trước**, chỉ hỏi `equals()` bên trong ngăn đó — nên quên `hashCode()` khiến `Set` chứa phần tử trùng, và sửa field sau khi bỏ vào `Set` khiến object mất tích không xóa được. `record` giải quyết cả hai.
+**Vừa xong:** Bài 3.1 — chọn sai cấu trúc dữ liệu có thể chậm **~1.000 lần** (`LinkedList.get(i)` trong vòng lặp thành O(n²)); dùng `List` để kiểm tra tồn tại là lỗi hiệu năng kinh điển; sửa Collection trong `for-each` không phải lúc nào cũng ném lỗi — xóa phần tử áp chót thì phần tử cuối bị bỏ qua trong im lặng.
 
-**Việc tiếp theo:** Giai đoạn 3 — Collections (`List`, `Set`, `Map` và khi nào dùng cái nào), Generics, Exception, Stream API.
+**Việc tiếp theo:** Bài 3.2 — Generics.
 
 ---
 
