@@ -64,14 +64,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | Bài | Nội dung | Code |
 |---|---|---|
 | [3.1](docs/03-collections/01-chon-collection.md) | Cấu trúc bên trong `ArrayList`/`LinkedList`/`HashSet`/`HashMap`/`TreeMap`, Big-O, đo thời gian thật, `List.of` bất biến, lỗ thủng của `ConcurrentModificationException` | [`ChonCollection.java`](bai-tap/03-collections/ChonCollection.java) |
+| [3.2](docs/03-collections/02-generics.md) | Raw type, type erasure (soi `checkcast`), class/method generic, vì sao `List<Cho>` không phải `List<DongVat>` còn mảng thì có, `? extends` / `? super` (PECS) | [`Generics.java`](bai-tap/03-collections/Generics.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 3.1 — chọn sai cấu trúc dữ liệu có thể chậm **~1.000 lần** (`LinkedList.get(i)` trong vòng lặp thành O(n²)); dùng `List` để kiểm tra tồn tại là lỗi hiệu năng kinh điển; sửa Collection trong `for-each` không phải lúc nào cũng ném lỗi — xóa phần tử áp chót thì phần tử cuối bị bỏ qua trong im lặng.
+**Vừa xong:** Bài 3.2 — generic chỉ tồn tại lúc compile rồi bị xóa (compiler tự chèn `checkcast`); vì bị xóa nên không ai kiểm tra được lúc chạy, compiler buộc phải chặn `List<Cho>` → `List<DongVat>` ngay từ đầu, còn mảng nhớ kiểu lúc chạy nên để JVM ném `ArrayStoreException`.
 
-**Việc tiếp theo:** Bài 3.2 — Generics.
+**Việc tiếp theo:** Bài 3.3 — Exception.
 
 ---
 
