@@ -65,14 +65,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 |---|---|---|
 | [3.1](docs/03-collections/01-chon-collection.md) | Cấu trúc bên trong `ArrayList`/`LinkedList`/`HashSet`/`HashMap`/`TreeMap`, Big-O, đo thời gian thật, `List.of` bất biến, lỗ thủng của `ConcurrentModificationException` | [`ChonCollection.java`](bai-tap/03-collections/ChonCollection.java) |
 | [3.2](docs/03-collections/02-generics.md) | Raw type, type erasure (soi `checkcast`), class/method generic, vì sao `List<Cho>` không phải `List<DongVat>` còn mảng thì có, `? extends` / `? super` (PECS) | [`Generics.java`](bai-tap/03-collections/Generics.java) |
+| [3.3](docs/03-collections/03-exception.md) | Cây `Throwable`, stack unwinding, đọc stack trace + `Caused by`, checked vs unchecked (chỉ tồn tại ở cửa 1), thứ tự `catch`, `finally` bị chép vào mọi lối ra (soi `javap`), `return` trong `finally` nuốt lỗi, try-with-resources + suppressed, bẫy `@Transactional` | [`NgoaiLe.java`](bai-tap/03-collections/NgoaiLe.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 3.2 — generic chỉ tồn tại lúc compile rồi bị xóa (compiler tự chèn `checkcast`); vì bị xóa nên không ai kiểm tra được lúc chạy, compiler buộc phải chặn `List<Cho>` → `List<DongVat>` ngay từ đầu, còn mảng nhớ kiểu lúc chạy nên để JVM ném `ArrayStoreException`.
+**Vừa xong:** Bài 3.3 — exception bay ngược stack (unwinding) tới `catch` khớp đầu tiên theo `instanceof`; checked exception chỉ là luật của compiler (JVM không kiểm tra `throws`); JVM không có lệnh `finally`, `javac` chép nó vào mọi lối ra nên `return` trong `finally` nuốt mất exception; try-with-resources đóng ngược thứ tự mở, đóng xong mới tới `catch`, lỗi khi `close()` thành *suppressed*.
 
-**Việc tiếp theo:** Bài 3.3 — Exception.
+**Việc tiếp theo:** Bài 3.4 — Lambda và Stream API.
 
 ---
 

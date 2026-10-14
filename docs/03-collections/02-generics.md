@@ -352,4 +352,4 @@ inTen(dsMeo): Mun
 ---
 
 ⬅️ **Bài trước:** [3.1 — Collections: chọn đúng cấu trúc dữ liệu](01-chon-collection.md)
-➡️ **Bài tiếp:** 3.3 — Exception
+➡️ **Bài tiếp:** [3.3 — Exception](03-exception.md)
