@@ -13,7 +13,7 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | **0** | Môi trường: JDK, VS Code, Git | Chạy được dòng Java đầu tiên | ✅ Xong |
 | **1** | Java core: biến, kiểu dữ liệu, điều kiện, vòng lặp, method | Viết logic cơ bản | ✅ Xong |
 | **2** | OOP: class, object, kế thừa, interface, đa hình | Tư duy hướng đối tượng — nền tảng bắt buộc để hiểu Spring | ✅ Xong |
-| **3** | Collections, Exception, Generics, Stream API | Xử lý dữ liệu thực tế | 🔄 Đang làm |
+| **3** | Collections, Exception, Generics, Stream API | Xử lý dữ liệu thực tế | ✅ Xong |
 | **4** | Maven, annotation, reflection cơ bản | Hiểu *tại sao* Spring "tự động" làm được nhiều thứ | ⬜ |
 | **5** | Spring Core: IoC / DI / Bean | Trái tim của Spring | ⬜ |
 | **6** | Spring Boot + REST API | Viết được API đầu tiên | ⬜ |
@@ -66,14 +66,17 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [3.1](docs/03-collections/01-chon-collection.md) | Cấu trúc bên trong `ArrayList`/`LinkedList`/`HashSet`/`HashMap`/`TreeMap`, Big-O, đo thời gian thật, `List.of` bất biến, lỗ thủng của `ConcurrentModificationException` | [`ChonCollection.java`](bai-tap/03-collections/ChonCollection.java) |
 | [3.2](docs/03-collections/02-generics.md) | Raw type, type erasure (soi `checkcast`), class/method generic, vì sao `List<Cho>` không phải `List<DongVat>` còn mảng thì có, `? extends` / `? super` (PECS) | [`Generics.java`](bai-tap/03-collections/Generics.java) |
 | [3.3](docs/03-collections/03-exception.md) | Cây `Throwable`, stack unwinding, đọc stack trace + `Caused by`, checked vs unchecked (chỉ tồn tại ở cửa 1), thứ tự `catch`, `finally` bị chép vào mọi lối ra (soi `javap`), `return` trong `finally` nuốt lỗi, try-with-resources + suppressed, bẫy `@Transactional` | [`NgoaiLe.java`](bai-tap/03-collections/NgoaiLe.java) |
+| [3.4](docs/03-collections/04-lambda-stream.md) | Lambda = object cài đặt functional interface, target typing, method reference, lambda không phải lớp ẩn danh (`invokedynamic`, hidden class), effectively final vì lambda giữ bản sao giá trị (soi `javap`), Stream lười xử lý dọc, `groupingBy` dùng `HashMap`, `toList()` bất biến, checked exception trong lambda | [`LambdaStream.java`](bai-tap/03-collections/LambdaStream.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 3.3 — exception bay ngược stack (unwinding) tới `catch` khớp đầu tiên theo `instanceof`; checked exception chỉ là luật của compiler (JVM không kiểm tra `throws`); JVM không có lệnh `finally`, `javac` chép nó vào mọi lối ra nên `return` trong `finally` nuốt mất exception; try-with-resources đóng ngược thứ tự mở, đóng xong mới tới `catch`, lỗi khi `close()` thành *suppressed*.
+**Vừa xong:** Bài 3.4 — **hoàn thành Giai đoạn 3**. Lambda là object cài đặt functional interface, thân lambda thành method `private static lambda$main$N`, class được sinh lúc chạy qua `invokedynamic`; lambda giữ **bản sao giá trị** của biến bên ngoài nên biến phải effectively final; Stream lười và xử lý **dọc** từng phần tử nên `findFirst` dừng sớm được; `groupingBy` mặc định là `HashMap`, `stream.toList()` trả list bất biến.
 
-**Việc tiếp theo:** Bài 3.4 — Lambda và Stream API.
+**Việc tiếp theo:** Giai đoạn 4 — Bài 4.1: Maven.
+
+> Lưu ý môi trường: máy hiện tại đang chạy **JDK 19** (`java -version`), không phải JDK 21 như hướng dẫn ở bài 0.2. Mọi bài tới 3.4 chạy giống nhau, nhưng nên cài JDK 21 trước khi sang Spring Boot.
 
 ---
 

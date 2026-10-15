@@ -412,4 +412,4 @@ Exit code: `1`. Dòng `dong nay co in khong?` không in.
 ---
 
 ⬅️ **Bài trước:** [3.2 — Generics](02-generics.md)
-➡️ **Bài tiếp:** 3.4 — Lambda và Stream API
+➡️ **Bài tiếp:** [3.4 — Lambda và Stream API](04-lambda-stream.md)
