@@ -14,7 +14,7 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | **1** | Java core: biến, kiểu dữ liệu, điều kiện, vòng lặp, method | Viết logic cơ bản | ✅ Xong |
 | **2** | OOP: class, object, kế thừa, interface, đa hình | Tư duy hướng đối tượng — nền tảng bắt buộc để hiểu Spring | ✅ Xong |
 | **3** | Collections, Exception, Generics, Stream API | Xử lý dữ liệu thực tế | ✅ Xong |
-| **4** | Maven, annotation, reflection cơ bản | Hiểu *tại sao* Spring "tự động" làm được nhiều thứ | ⬜ |
+| **4** | Maven, annotation, reflection cơ bản | Hiểu *tại sao* Spring "tự động" làm được nhiều thứ | 🔄 Đang làm |
 | **5** | Spring Core: IoC / DI / Bean | Trái tim của Spring | ⬜ |
 | **6** | Spring Boot + REST API | Viết được API đầu tiên | ⬜ |
 | **7** | Spring Data JPA + Database (Docker + PostgreSQL) | CRUD thật, có DB thật | ⬜ |
@@ -68,15 +68,23 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | [3.3](docs/03-collections/03-exception.md) | Cây `Throwable`, stack unwinding, đọc stack trace + `Caused by`, checked vs unchecked (chỉ tồn tại ở cửa 1), thứ tự `catch`, `finally` bị chép vào mọi lối ra (soi `javap`), `return` trong `finally` nuốt lỗi, try-with-resources + suppressed, bẫy `@Transactional` | [`NgoaiLe.java`](bai-tap/03-collections/NgoaiLe.java) |
 | [3.4](docs/03-collections/04-lambda-stream.md) | Lambda = object cài đặt functional interface, target typing, method reference, lambda không phải lớp ẩn danh (`invokedynamic`, hidden class), effectively final vì lambda giữ bản sao giá trị (soi `javap`), Stream lười xử lý dọc, `groupingBy` dùng `HashMap`, `toList()` bất biến, checked exception trong lambda | [`LambdaStream.java`](bai-tap/03-collections/LambdaStream.java) |
 
+### Giai đoạn 4 — Maven, Annotation, Reflection
+
+| Bài | Nội dung | Code |
+|---|---|---|
+| [4.1](docs/04-maven/01-maven.md) | Phụ thuộc bắc cầu, `pom.xml`, tọa độ GAV, `package`, quy ước thư mục, vòng đời build, scope, `~/.m2`, compile classpath vs runtime classpath, lazy class loading, `BUILD SUCCESS` với jar rỗng | [`maven-dau-tien/`](bai-tap/04-maven/maven-dau-tien/) |
+
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 3.4 — **hoàn thành Giai đoạn 3**. Lambda là object cài đặt functional interface, thân lambda thành method `private static lambda$main$N`, class được sinh lúc chạy qua `invokedynamic`; lambda giữ **bản sao giá trị** của biến bên ngoài nên biến phải effectively final; Stream lười và xử lý **dọc** từng phần tử nên `findFirst` dừng sớm được; `groupingBy` mặc định là `HashMap`, `stream.toList()` trả list bất biến.
+**Vừa xong:** Bài 4.1 — Maven quản lý phụ thuộc bắc cầu và vòng đời build. `mvn package` chỉ đóng gói **code của dự án** (jar ~2 KB, không chứa thư viện), nên `java -cp` chỉ với jar đó nổ `NoClassDefFoundError` lúc chạy — và JVM nạp class **khi cần tới**, nên chương trình chạy được một đoạn rồi mới nổ. Đặt code sai thư mục vẫn `BUILD SUCCESS` với jar rỗng.
 
-**Việc tiếp theo:** Giai đoạn 4 — Bài 4.1: Maven.
+**Việc tiếp theo:** Bài 4.2 — Annotation và Reflection.
 
-> Lưu ý môi trường: máy hiện tại đang chạy **JDK 19** (`java -version`), không phải JDK 21 như hướng dẫn ở bài 0.2. Mọi bài tới 3.4 chạy giống nhau, nhưng nên cài JDK 21 trước khi sang Spring Boot.
+> ⚠️ **Lưu ý môi trường:**
+> - Từ bài 4.1 cần cài **Maven** trên mỗi máy học — xem [bài 4.1 mục 9](docs/04-maven/01-maven.md).
+> - Một máy học đang chạy **JDK 19**. `pom.xml` ở bài 4.1 khai `maven.compiler.release` = 21, nên trên JDK 19 sẽ **không compile được**. Cần cài JDK 21 trên máy đó ([bài 0.2](docs/00-moi-truong/02-cai-dat-jdk.md)) trước khi chạy bài 4.1.
 
 ---
 
