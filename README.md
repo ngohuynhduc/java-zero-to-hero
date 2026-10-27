@@ -73,14 +73,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | Bài | Nội dung | Code |
 |---|---|---|
 | [4.1](docs/04-maven/01-maven.md) | Phụ thuộc bắc cầu, `pom.xml`, tọa độ GAV, `package`, quy ước thư mục, vòng đời build, scope, `~/.m2`, compile classpath vs runtime classpath, lazy class loading, `BUILD SUCCESS` với jar rỗng | [`maven-dau-tien/`](bai-tap/04-maven/maven-dau-tien/) |
+| [4.2](docs/04-maven/02-annotation-reflection.md) | Annotation là nhãn dán (khác TS decorator), `@Retention` SOURCE/CLASS/RUNTIME (soi `javap`: `RuntimeInvisibleAnnotations`), `Class` object duy nhất, `getDeclaredFields`, `setAccessible` phá `private`, `InaccessibleObjectException` với class JDK, tự viết validator kiểu `@NotBlank`, quên `@Retention` → validator im lặng, gọi method bằng chuỗi → lỗi cửa 2 | [`AnnotationReflection.java`](bai-tap/04-maven/AnnotationReflection.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 4.1 — Maven quản lý phụ thuộc bắc cầu và vòng đời build. `mvn package` chỉ đóng gói **code của dự án** (jar ~2 KB, không chứa thư viện), nên `java -cp` chỉ với jar đó nổ `NoClassDefFoundError` lúc chạy — và JVM nạp class **khi cần tới**, nên chương trình chạy được một đoạn rồi mới nổ. Đặt code sai thư mục vẫn `BUILD SUCCESS` với jar rỗng.
+**Vừa xong:** Bài 4.2 — Annotation và Reflection. Annotation chỉ là **nhãn dán**, tự nó không làm gì; reflection cho chương trình đọc nhãn, liệt kê field, phá `private` lúc chạy. Tự viết validator kiểu `@NotBlank`: annotation **quên `@Retention(RUNTIME)`** thì mặc định là `CLASS`, reflection không thấy, validator **im lặng cho qua** dữ liệu sai. Gọi method bằng tên chuỗi thì `javac` không kiểm tra được, sai tên nổ `NoSuchMethodException` lúc chạy.
 
-**Việc tiếp theo:** Bài 4.2 — Annotation và Reflection.
+**Việc tiếp theo:** Bài 4.3 — Tự viết mini container (annotation + reflection tạo object và tiêm phụ thuộc), cầu nối sang Giai đoạn 5 (Spring IoC/DI).
 
 > ⚠️ **Lưu ý môi trường:**
 > - Từ bài 4.1 cần cài **Maven** trên mỗi máy học — xem [bài 4.1 mục 9](docs/04-maven/01-maven.md).

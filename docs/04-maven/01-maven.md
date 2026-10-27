@@ -350,4 +350,4 @@ Maven tìm code theo **quy ước**. Thư mục quy ước trống thì đó là
 ---
 
 ⬅️ **Bài trước:** [3.4 — Lambda và Stream](../03-collections/04-lambda-stream.md)
-➡️ **Bài tiếp:** 4.2 — Annotation và Reflection
+➡️ **Bài tiếp:** [4.2 — Annotation và Reflection](02-annotation-reflection.md)
