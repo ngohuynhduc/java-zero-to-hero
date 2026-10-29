@@ -14,8 +14,8 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 | **1** | Java core: biến, kiểu dữ liệu, điều kiện, vòng lặp, method | Viết logic cơ bản | ✅ Xong |
 | **2** | OOP: class, object, kế thừa, interface, đa hình | Tư duy hướng đối tượng — nền tảng bắt buộc để hiểu Spring | ✅ Xong |
 | **3** | Collections, Exception, Generics, Stream API | Xử lý dữ liệu thực tế | ✅ Xong |
-| **4** | Maven, annotation, reflection cơ bản | Hiểu *tại sao* Spring "tự động" làm được nhiều thứ | 🔄 Đang làm |
-| **5** | Spring Core: IoC / DI / Bean | Trái tim của Spring | ⬜ |
+| **4** | Maven, annotation, reflection cơ bản | Hiểu *tại sao* Spring "tự động" làm được nhiều thứ | ✅ Xong |
+| **5** | Spring Core: IoC / DI / Bean | Trái tim của Spring | 🔄 Đang làm |
 | **6** | Spring Boot + REST API | Viết được API đầu tiên | ⬜ |
 | **7** | Spring Data JPA + Database (Docker + PostgreSQL) | CRUD thật, có DB thật | ⬜ |
 | **8** | Validation, Exception handling, DTO, layered architecture | Code chuẩn production | ⬜ |
@@ -74,14 +74,15 @@ Repo ghi lại toàn bộ quá trình tự học Backend với Java. Mỗi bài 
 |---|---|---|
 | [4.1](docs/04-maven/01-maven.md) | Phụ thuộc bắc cầu, `pom.xml`, tọa độ GAV, `package`, quy ước thư mục, vòng đời build, scope, `~/.m2`, compile classpath vs runtime classpath, lazy class loading, `BUILD SUCCESS` với jar rỗng | [`maven-dau-tien/`](bai-tap/04-maven/maven-dau-tien/) |
 | [4.2](docs/04-maven/02-annotation-reflection.md) | Annotation là nhãn dán (khác TS decorator), `@Retention` SOURCE/CLASS/RUNTIME (soi `javap`: `RuntimeInvisibleAnnotations`), `Class` object duy nhất, `getDeclaredFields`, `setAccessible` phá `private`, `InaccessibleObjectException` với class JDK, tự viết validator kiểu `@NotBlank`, quên `@Retention` → validator im lặng, gọi method bằng chuỗi → lỗi cửa 2 | [`AnnotationReflection.java`](bai-tap/04-maven/AnnotationReflection.java) |
+| [4.3](docs/04-maven/03-mini-container.md) | Tự viết mini container: DI vs IoC, `getDeclaredConstructors` + `getParameterTypes` + `newInstance`, đệ quy tạo con trước cha, cache singleton (`==` true, bẫy service giữ trạng thái), `isAssignableFrom` tìm class cài interface, nhập nhằng im lặng vs `NoUniqueBeanDefinitionException`, object tạo dở, lazy vs eager (fail fast), vòng lặp gà–trứng → `StackOverflowError` (đọc đoạn lặp, `-Xss` không cứu), phát hiện vòng lặp như `BeanCurrentlyInCreationException` | [`MiniContainer.java`](bai-tap/04-maven/MiniContainer.java) |
 
 ---
 
 ## 📍 Đang học đến đâu
 
-**Vừa xong:** Bài 4.2 — Annotation và Reflection. Annotation chỉ là **nhãn dán**, tự nó không làm gì; reflection cho chương trình đọc nhãn, liệt kê field, phá `private` lúc chạy. Tự viết validator kiểu `@NotBlank`: annotation **quên `@Retention(RUNTIME)`** thì mặc định là `CLASS`, reflection không thấy, validator **im lặng cho qua** dữ liệu sai. Gọi method bằng tên chuỗi thì `javac` không kiểm tra được, sai tên nổ `NoSuchMethodException` lúc chạy.
+**Vừa xong:** Bài 4.3 — Tự viết mini container, **hoàn thành Giai đoạn 4**. Container đọc nhãn `@ThanhPhan`, soi constructor bằng reflection, **đệ quy** lấy tham số rồi mới `newInstance` (nên class được gọi đầu tiên lại tạo cuối cùng), cache vào `Map` thành singleton. Thực nghiệm: nhiều class cùng khớp interface thì container tự chế im lặng chọn cái đầu (Spring nổ `NoUniqueBeanDefinitionException`); `Ga` cần `Trung` cần `Ga` → `StackOverflowError`, sửa bằng tập "đang tạo dở" giống `BeanCurrentlyInCreationException` của Spring.
 
-**Việc tiếp theo:** Bài 4.3 — Tự viết mini container (annotation + reflection tạo object và tiêm phụ thuộc), cầu nối sang Giai đoạn 5 (Spring IoC/DI).
+**Việc tiếp theo:** Bài 5.1 — Spring IoC container thật: `@Component`, component scan, `ApplicationContext`, đối chiếu từng phần với mini container của bài 4.3. Bài này dùng Maven để kéo `spring-context`.
 
 > ⚠️ **Lưu ý môi trường:**
 > - Từ bài 4.1 cần cài **Maven** trên mỗi máy học — xem [bài 4.1 mục 9](docs/04-maven/01-maven.md).

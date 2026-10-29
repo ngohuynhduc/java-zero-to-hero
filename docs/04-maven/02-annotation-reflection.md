@@ -369,4 +369,4 @@ Thêm một dòng `@Retention(RetentionPolicy.RUNTIME)` cho `DoDaiToiDa`:
 ---
 
 ⬅️ **Bài trước:** [4.1 — Maven](01-maven.md)
-➡️ **Bài tiếp:** 4.3 — Tự viết mini container: annotation + reflection tạo object và tiêm phụ thuộc
+➡️ **Bài tiếp:** [4.3 — Tự viết mini container: annotation + reflection tạo object và tiêm phụ thuộc](03-mini-container.md)
